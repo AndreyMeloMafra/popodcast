@@ -1,0 +1,73 @@
+.progressBar {
+    --bar-bg: #f7f7f8;
+    --seek-before-width: 0px;
+    --seek-before-color: #909090;
+    --knobby: #121212;
+    --selectedKnobby: #181818;
+
+    appearance: none;
+    background: var(--bar-bg);
+    border-radius: 20px;
+    position: relative;
+    outline: none;
+    width: 70%;
+    height: 5px;
+    outline: none;
+
+    transition: 0.2s; 
+}
+
+.progressBar::-webkit-slider-runnable-track {
+    background: var(--bar-bg);
+    border-radius: 20px;
+    position: relative;
+    width: 70%;
+    height: 5px;
+    outline: none;
+}
+
+.progressBar::-moz-range-track {
+    background: var(--bar-bg);
+    border-radius: 20px;
+    position: relative;
+    width: 70%;
+    height: 5px;
+    outline: none;
+}
+
+.progressBar::-moz-focus-outer {
+    border: 0;
+}
+
+.progressBar::-webkit-slider-thumb {
+    --webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    margin: -5px 0 0 0;
+    z-index: 3;
+    box-sizing: border-box; 
+}
+
+.progressBar:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background: var(--selectedKnobby);
+}
+
+.progressBar::before {
+    content: '';
+    height: 6px;
+    width: var(--seek-before-width);
+    background: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
